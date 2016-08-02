@@ -29,7 +29,16 @@ namespace UlidNet
 
         internal static string EncodeRandom(int length)
         {
-            throw new NotImplementedException();
+            var str = "";
+
+            for (var i = length; i > 0; i--)
+            {
+                var rand = (int)Math.Floor(EncodingLength * Prng());
+
+                str = Encoding[rand] + str;
+            }
+
+            return str;
         }
 
         internal static double Prng()
