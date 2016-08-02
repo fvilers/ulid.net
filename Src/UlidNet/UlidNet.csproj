@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildProjectDirectory)\..\.build\MSBuild.Community.Tasks.targets" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -22,12 +23,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+	<AllowedReferenceRelatedFileExtensions>.none</AllowedReferenceRelatedFileExtensions>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,11 +46,11 @@
     <Compile Include="Ulid.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <PropertyGroup>
+    <NuGetCommandLine>$(SolutionDir)\.build\nuget.exe</NuGetCommandLine>
+  </PropertyGroup>
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
+    <WebDownload Condition="!Exists('$(NuGetCommandLine)')" Filename="$(NuGetCommandLine)" FileUri="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" />
+    <Exec Command="$(NuGetCommandLine) pack $(ProjectFileName) -IncludeReferencedProjects -OutputDirectory $(SolutionDir) -Prop Configuration=$(Configuration)" WorkingDirectory="$(BaseDir)" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

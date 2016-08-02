@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Fabian Vilers</authors>
+    <owners>fvilers</owners>
+    <licenseUrl>https://github.com/fvilers/ulid.net/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/fvilers/ulid.net</projectUrl>
+	<iconUrl>http://www.dev-one.com/wp-content/uploads/2013/10/devone-picto-128x121.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>guid identifier id</tags>
+  </metadata>
+</package>
