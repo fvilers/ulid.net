@@ -9,7 +9,7 @@ namespace UlidNet
 
         public static string NewUlid()
         {
-            throw new NotImplementedException();
+            return EncodeTime(Now(), 10) + EncodeRandom(16);
         }
 
         internal static string EncodeTime(long time, int length)
@@ -46,6 +46,11 @@ namespace UlidNet
             var rnd = new Random();
 
             return rnd.NextDouble();
+        }
+
+        private static long Now()
+        {
+            return (DateTime.UtcNow.Ticks - 621355968000000000) / 10000;
         }
     }
 }
