@@ -8,5 +8,15 @@ namespace UlidNet
         {
             throw new NotImplementedException();
         }
+
+        internal static string EncodeTime(long time, int length)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static string EncodeRandom(int length)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
