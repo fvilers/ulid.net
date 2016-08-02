@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("UlidNet")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Universally Unique Lexicographically Sortable Identifier")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dev One")]
 [assembly: AssemblyProduct("UlidNet")]
