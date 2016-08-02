@@ -8,6 +8,16 @@ namespace UlidNet.Tests
         private const long Time = 1469918176385;
 
         [TestMethod]
+        public void PrngShouldBeBetween0And1()
+        {
+            // Act
+            var result = Ulid.Prng();
+
+            // Assert
+            Assert.IsTrue(result > 0 && result < 1);
+        }
+
+        [TestMethod]
         public void EncodeTimeShouldReturnExpectedEncodedResult()
         {
             // Act

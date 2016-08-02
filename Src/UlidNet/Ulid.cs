@@ -31,5 +31,12 @@ namespace UlidNet
         {
             throw new NotImplementedException();
         }
+
+        internal static double Prng()
+        {
+            var rnd = new Random();
+
+            return rnd.NextDouble();
+        }
     }
 }
